@@ -1,7 +1,7 @@
 import Kanishk from "./first";
-
-function app()
+import Listgroup from "./components/Listgroup";
+function App()
 {
-  return <Kanishk />;
+  return <Listgroup></Listgroup>;
 }
-export default app;
+export default App;
