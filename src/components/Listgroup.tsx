@@ -4,9 +4,10 @@ import { useState } from "react";
 interface ListgroupProps {
   name: string[];
   heading: string;
+  onselectedname(name: string): void;
 }
 
-function Listgroup({ name, heading }: ListgroupProps) {
+function Listgroup({ name, heading, onselectedname }: ListgroupProps) {
   // var name = ["Kanishk", "Aman", "Rahul", "Rohit", "Raj"];
   // name = [];
   // Hook to store the state of the component. It returns an array with two elements.
@@ -14,7 +15,7 @@ function Listgroup({ name, heading }: ListgroupProps) {
   const [i, selected_index] = useState(0);
   function selected(index: number, index_selected: number) {
     if (index === index_selected) {
-      return "list-group-item active";
+      return "list-group-item list-group-item-success";
     } else {
       return "list-group-item";
     }
@@ -32,6 +33,7 @@ function Listgroup({ name, heading }: ListgroupProps) {
             onClick={() => {
               console.log(n + "is clicked");
               selected_index(index);
+              onselectedname(n);
             }}
             className={selected(index, i)}
           >
