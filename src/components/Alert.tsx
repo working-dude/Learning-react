@@ -1,18 +1,13 @@
-import { useState } from "react";
-
 interface AlertProps {
   message: string;
+  onclose(): void;
 }
 
-const Alert = ({ message }: AlertProps) => {
-  const [isVisible, setIsVisible] = useState(true);
-
+const Alert = ({ message, onclose }: AlertProps) => {
   return (
     <>
       <div
-        className={`alert alert-warning alert-dismissible fade ${
-          isVisible ? "show" : "hide"
-        }`}
+        className={`alert alert-warning alert-dismissible fade show`}
         role="alert"
       >
         {message}
@@ -20,17 +15,9 @@ const Alert = ({ message }: AlertProps) => {
           type="button"
           className="btn-close"
           aria-label="Close"
-          onClick={() => setIsVisible(false)}
+          onClick={onclose}
         ></button>
       </div>
-      <button
-        onClick={() => {
-          setIsVisible(true);
-          console.log("clicked alert");
-        }}
-      >
-        Show alert
-      </button>
     </>
   );
 };
