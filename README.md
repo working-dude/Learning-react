@@ -48,7 +48,3 @@ export default tseslint.config({
   },
 });
 ```
-
-<!-- TO DO -->
-
-Add a function in props that changes the color of selected item
